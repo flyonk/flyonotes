@@ -21,7 +21,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 import CNote from '@/components/Notes/CNote.vue';
 import CAddEditNote from '@/components/Notes/CAddEditNote.vue';
 import { useStoreNotes } from '@/stores/storeNotes.js';
@@ -32,10 +32,6 @@ const newNote = ref('');
 const addEditNoteRef = ref('');
 
 const noteMaxLength = 150;
-
-onMounted(() => {
-  storeNotes.getNotes();
-});
 
 const addNewNote = (newContent) => {
   storeNotes.addNote(newContent);

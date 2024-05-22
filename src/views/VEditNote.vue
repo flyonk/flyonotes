@@ -28,6 +28,6 @@ noteContent.value = store.getNoteById(noteId).content;
 
 const saveNewNote = (id, newContent) => {
   store.updateNoteById(id, newContent);
-  router.push('/');
+  router.push('/notes');
 };
 </script>

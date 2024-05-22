@@ -1,9 +1,12 @@
 import { defineStore } from 'pinia';
 import { collection, deleteDoc, onSnapshot, doc, updateDoc, query, orderBy, addDoc  } from "firebase/firestore";
 import { db } from '@/js/firebase';
+import { useStoreAuth } from '@/stores/storeAuth';
 
-const noteCollectionRef = collection(db, "notes");
-const notesCollectionQuery = query(noteCollectionRef, orderBy("created", "desc"));
+let noteCollectionRef
+let notesCollectionQuery
+
+let getNotesSnapshot = null;
 
 export const useStoreNotes = defineStore('storeNotes', {
   state: () => {
@@ -18,17 +21,28 @@ export const useStoreNotes = defineStore('storeNotes', {
     totalCharactersCount: (state) => state.notes.reduce((acc, note) => acc + note.content.length, 0),
   },
   actions: {
+    init() {
+      const storeAuth = useStoreAuth();
+
+      noteCollectionRef = collection(db, "users", storeAuth.user.id, "notes");
+      console.log('init', noteCollectionRef)
+      notesCollectionQuery = query(noteCollectionRef, orderBy("created", "desc"));  
+      this.getNotes();
+    },
     async getNotes() {
       this.isNotesLoaded = false;
-      onSnapshot(notesCollectionQuery, (querySnapshot) => {
+
+      getNotesSnapshot = onSnapshot(notesCollectionQuery, (querySnapshot) => {
         let notesList = [];
         querySnapshot.forEach((doc) => {
         let note = { id: doc.id, content: doc.data().content, created: doc.data().created }
         notesList.push(note)
       });
-      this.isNotesLoaded = true
       this.notes = notesList
-    });
+      this.isNotesLoaded = true
+      });
+      
+      
     },
     async addNote(newContent) {
       const docRef = await addDoc(noteCollectionRef, {
@@ -44,5 +58,9 @@ export const useStoreNotes = defineStore('storeNotes', {
         content: newContent,
       })
     },
+    clearNotes() {
+      this.notes = []
+      if (getNotesSnapshot) getNotesSnapshot(); //unsubscribe from any active listeners
+    }
   }
 });
