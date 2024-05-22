@@ -1,0 +1,9 @@
+@import './base.css';
+
+.navbar-item {
+  color: white !important;
+}
+
+textarea {
+  resize: none;
+}
