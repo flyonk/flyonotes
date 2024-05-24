@@ -1,5 +1,6 @@
 <template>
-  <div class="auth">
+  <CSuccessfullRegister v-if="storeAuth.showSuccessRegister" />
+  <div class="auth" v-else>
     <div class="tabs is-centered">
       <ul>
         <li :class="{ 'is-active': !register }">
@@ -45,6 +46,7 @@
 <script setup>
 import { ref, computed, reactive } from 'vue';
 import { useStoreAuth } from '@/stores/storeAuth';
+import CSuccessfullRegister from '@/components/CSuccessfullRegister.vue';
 
 const storeAuth = useStoreAuth();
 const register = ref(false);
@@ -67,6 +69,34 @@ const onSubmit = () => {
 </script>
 
 <style scoped>
+.auth {
+  position: relative;
+}
+
+.successfull-register {
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: black !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  text-align: center;
+  background-color: white;
+  color: white;
+  font-size: 28px;
+
+  .text {
+    font-size: 16px;
+    text-decoration: underline;
+    color: #000;
+  }
+}
+
 .auth-form {
   max-width: 400px;
   margin: 0 auto;

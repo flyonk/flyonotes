@@ -3,7 +3,7 @@
 
     <CAddEditNote v-model="newNote" ref="addEditNoteRef" :maxLength="noteMaxLength">
       <template #buttons>
-        <button class="button is-link has-background-success" @click="addNewNote(newNote)"
+        <button class="button is-link has-background-special" @click="addNewNote(newNote)"
           :disabled="!newNote || newNote.length === noteMaxLength">Add
           New Note</button>
       </template>
@@ -53,6 +53,9 @@ a {
   background-color: #0d4b12;
 }
 
+.has-background-special {
+  background-color: #15B35D !important;
+}
 
 
 .card-footer-item:hover {
