@@ -6,7 +6,7 @@ This template should help get you started project with Vue 3 in Vite.
 
 This simple app has hosted on firebase. You can check it here:
 
-https://noteballz-feb5a.web.app/auth
+https://noteballz-feb5a.web.app
 
 ### Project Setup
 
