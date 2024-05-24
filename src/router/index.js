@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import { useStoreAuth } from '@/stores/storeAuth'
 import VNotes from '@/views/VNotes.vue'
 import VStats from '@/views/VStats.vue'
@@ -15,7 +15,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes: routes
 });
 
