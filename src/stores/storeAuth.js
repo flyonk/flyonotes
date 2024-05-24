@@ -20,13 +20,11 @@ export const useStoreAuth = defineStore('storeAuth', {
           this.user.id = user.uid
           this.user.email = user.email
           storeNotes.init();
-          console.log('privet', this.showSuccessRegister)
           if (!this.showSuccessRegister) {
             this.router.push('/notes')
-            this.showSuccessRegister = false
           } else {
             setTimeout(() => {
-              console.log('jdem')
+              this.showSuccessRegister = false
               this.router.push('/notes')
             }, 3000);
           }
@@ -45,7 +43,6 @@ export const useStoreAuth = defineStore('storeAuth', {
       createUserWithEmailAndPassword(auth, credentials.email, credentials.password)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log('after', this.showSuccessRegister)
       })
       .catch((error) => {
         console.error('error', error.code, error.message)
@@ -61,6 +58,7 @@ export const useStoreAuth = defineStore('storeAuth', {
       });
     },
     logoutUser() {
+      this.showSuccessRegister = false;
       signOut(auth).then(() => {
       }).catch((error) => {
         console.error('logout error', error)
