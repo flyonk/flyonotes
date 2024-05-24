@@ -2,19 +2,25 @@
 
 This template should help get you started project with Vue 3 in Vite.
 
-## Project Setup
+## Explore app
+
+This simple app has hosted on firebase. You can check it here:
+
+https://noteballz-feb5a.web.app/auth
+
+### Project Setup
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+#### Compile and Hot-Reload for Development
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+#### Compile and Minify for Production
 
 ```sh
 npm run build
