@@ -45,7 +45,6 @@ const navbarBurgerRef = ref(null);
 const showMobileNav = ref(false);
 
 const logout = () => {
-  console.log('logout');
   showMobileNav.value = false;
   storeAuth.logoutUser();
 };

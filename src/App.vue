@@ -15,7 +15,6 @@ const storeAuth = useStoreAuth();
 
 
 onMounted(() => {
-  console.log('init app');
   storeAuth.init();
 });
 </script>

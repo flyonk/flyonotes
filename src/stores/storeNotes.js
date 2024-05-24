@@ -25,7 +25,6 @@ export const useStoreNotes = defineStore('storeNotes', {
       const storeAuth = useStoreAuth();
 
       noteCollectionRef = collection(db, "users", storeAuth.user.id, "notes");
-      console.log('init', noteCollectionRef)
       notesCollectionQuery = query(noteCollectionRef, orderBy("created", "desc"));  
       this.getNotes();
     },
