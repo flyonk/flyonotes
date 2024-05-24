@@ -3,7 +3,7 @@
     <CAddEditNote v-model="noteContent" :maxLength="150" ref="addEditNoteRef" bgColor="link" placeholder="Edit Note"
       label="Edit Note">
       <template #buttons>
-        <button class="button is-link has-background-success mr-1" @click="$router.push('/')">Cancel</button>
+        <button class="button is-link has-background-success mr-1" @click="$router.push('/notes')">Cancel</button>
         <button class="button is-link has-background-success" :disabled="!noteContent"
           @click="saveNewNote(noteId, noteContent)">Save
           Note</button>

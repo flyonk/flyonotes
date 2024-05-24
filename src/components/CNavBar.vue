@@ -22,7 +22,7 @@
         </div>
 
         <div class="navbar-end">
-          <RouterLink class="navbar-item" active-class="is-active" to="/" @click="showMobileNav = false">Notes
+          <RouterLink class="navbar-item" active-class="is-active" to="/notes" @click="showMobileNav = false">Notes
           </RouterLink>
           <RouterLink class="navbar-item" active-class="is-active" to="/stats" @click="showMobileNav = false">Stats
           </RouterLink>
