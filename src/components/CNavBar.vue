@@ -16,16 +16,24 @@
 
       <div id="navbarBasicExample" class="navbar-menu" :class="{ 'is-active': showMobileNav }" ref="navBarMenuRef">
         <div class="navbar-start">
-          <button v-if="storeAuth.user.id" @click="logout" class="button is-small is-info mt-3 ml-3 mb-3">Log
-            out</button>
+          <button v-if="storeAuth.user.id" @click="logout" class="button is-small is-info mt-3 ml-3 mb-3">{{
+            $t('logout') }}</button>
           <div v-if="storeAuth.user.id" class="user-email">{{ storeAuth.user.email }}</div>
         </div>
 
         <div class="navbar-end">
-          <RouterLink class="navbar-item" active-class="is-active" to="/notes" @click="showMobileNav = false">Notes
+          <RouterLink class="navbar-item" active-class="is-active" to="/notes" @click="showMobileNav = false">
+            {{ $t('notes') }}
           </RouterLink>
-          <RouterLink class="navbar-item" active-class="is-active" to="/stats" @click="showMobileNav = false">Stats
+          <RouterLink class="navbar-item" active-class="is-active" to="/stats" @click="showMobileNav = false">{{
+            $t('stats') }}
           </RouterLink>
+          <div class="change-locale select is-info">
+            <select v-model="$i18n.locale" style="height: 100%;">
+              <option value="en">EN</option>
+              <option value="ru">RU</option>
+            </select>
+          </div>
         </div>
       </div>
     </div>
@@ -64,6 +72,10 @@ onClickOutside(navBarMenuRef, (e) => {
   margin-left: 15px;
   color: white;
   font-size: 14px;
+}
+
+.navbar-end {
+  align-items: center;
 }
 
 @media (max-width: 1023px) {

@@ -11,8 +11,8 @@
       </section>
       <footer class="modal-card-foot is-justify-content-flex-end">
         <div class="buttons">
-          <button class="button" @click="closeModal">Cancel</button>
-          <button class="button is-danger" @click="deleteNote">Delete</button>
+          <button class="button" @click="closeModal">{{ $t('Cancel') }}</button>
+          <button class="button is-danger" @click="deleteNote">{{ $t('Delete') }}</button>
         </div>
       </footer>
     </div>

@@ -1,0 +1,14 @@
+{
+  "Login": "Login",
+  "Register": "Register",
+  "Logout": "Log out",
+  "Email": "Email",
+  "Password": "Password",
+  "notes": "Notes",
+  "stats": "Stats",
+  "Edit": "Edit",
+  "Delete": "Delete",
+  "AddNewNote": "Add New Note",
+  "SaveNote": "Save Note",
+  "Cancel": "Cancel"
+}

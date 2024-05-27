@@ -4,8 +4,7 @@
     <CAddEditNote v-model="newNote" ref="addEditNoteRef" :maxLength="noteMaxLength">
       <template #buttons>
         <button class="button is-link has-background-special" @click="addNewNote(newNote)"
-          :disabled="!newNote || newNote.length === noteMaxLength">Add
-          New Note</button>
+          :disabled="!newNote || newNote.length === noteMaxLength">{{ $t('AddNewNote') }}</button>
       </template>
     </CAddEditNote>
 
@@ -31,7 +30,7 @@ const storeNotes = useStoreNotes();
 const newNote = ref('');
 const addEditNoteRef = ref('');
 
-const noteMaxLength = 150;
+const noteMaxLength = 450;
 
 const addNewNote = (newContent) => {
   storeNotes.addNote(newContent);

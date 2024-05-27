@@ -1,16 +1,16 @@
 <template>
   <div class="card mb-4">
     <div class="card-content">
-      <div class="content">
-        {{ note.content }}
+      <div class="content overflow-hidden">
+        <p class="content-text">{{ note.content }}</p>
         <div class="colums is-mobile has-text-gray-light mt-2">
           <small class="column small-characters-text has-text-right">{{ characterLength }}</small>
           <small class="column small-characters-text">Date: {{ formatDateFromTimestamp(note.created) }}</small>
         </div>
       </div>
       <footer class="card-footer">
-        <RouterLink :to="`/editNote/${note.id}`" class="card-footer-item">Edit</RouterLink>
-        <a class="card-footer-item" @click.prevent="modals.deleteNote = true">Delete</a>
+        <RouterLink :to="`/editNote/${note.id}`" class="card-footer-item">{{ $t('Edit') }}</RouterLink>
+        <a class="card-footer-item" @click.prevent="modals.deleteNote = true">{{ $t('Delete') }}</a>
       </footer>
       <CModalDeleteNote :noteId="note.id" v-if="modals.deleteNote" v-model="modals.deleteNote" />
     </div>
@@ -29,7 +29,6 @@ const props = defineProps({
   required: true
 });
 
-const deleteNoteRef = ref(null);
 const modals = reactive({
   deleteNote: false,
   editNote: false

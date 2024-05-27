@@ -5,8 +5,7 @@
       <template #buttons>
         <button class="button is-link has-background-success mr-1" @click="$router.push('/notes')">Cancel</button>
         <button class="button is-link has-background-success" :disabled="!noteContent"
-          @click="saveNewNote(noteId, noteContent)">Save
-          Note</button>
+          @click="saveNewNote(noteId, noteContent)">{{ $t('SaveNote') }}</button>
       </template>
     </CAddEditNote>
   </div>
