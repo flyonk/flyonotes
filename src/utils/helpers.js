@@ -1,14 +1,5 @@
-function generateUniqueId(length) {
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!#@$%'
-    const idLength = length || 10;
-    let id = '';
-
-    for (let i = 0; i < idLength; i++) {
-        const randomIndex = Math.floor(Math.random() * characters.length);
-        id += characters.charAt(randomIndex);
-    }
-
-    return id;
+function isErrorOnMessage(error, message) {
+    return error.message.includes(message);
 }
 
 function formatDateFromTimestamp(timestamp) {
@@ -24,4 +15,4 @@ function formatDateFromTimestamp(timestamp) {
     return `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
 }
 
-export { generateUniqueId, formatDateFromTimestamp }
+export { isErrorOnMessage, formatDateFromTimestamp }

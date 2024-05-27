@@ -40,8 +40,6 @@ export const useStoreNotes = defineStore('storeNotes', {
       this.notes = notesList
       this.isNotesLoaded = true
       });
-      
-      
     },
     async addNote(newContent) {
       const docRef = await addDoc(noteCollectionRef, {
