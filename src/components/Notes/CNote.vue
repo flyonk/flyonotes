@@ -5,7 +5,8 @@
         <p class="content-text">{{ note.content }}</p>
         <div class="colums is-mobile has-text-gray-light mt-2">
           <small class="column small-characters-text has-text-right">{{ characterLength }}</small>
-          <small class="column small-characters-text">Date: {{ formatDateFromTimestamp(note.created) }}</small>
+          <small class="column small-characters-text">{{ $t('Date') }}: {{ formatDateFromTimestamp(note.created)
+            }}</small>
         </div>
       </div>
       <footer class="card-footer">
@@ -42,6 +43,10 @@ const characterLength = computed(() => {
 
 
 <style lang="scss" scoped>
+.card-footer-item:hover {
+  background-color: #f5f5f5;
+}
+
 .small-characters-text {
   color: gray;
   font-size: 12px;

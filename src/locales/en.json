@@ -10,5 +10,10 @@
   "Delete": "Delete",
   "AddNewNote": "Add New Note",
   "SaveNote": "Save Note",
-  "Cancel": "Cancel"
+  "Cancel": "Cancel",
+  "Stat": "Stat",
+  "Value": "Value",
+  "AmountOfNotes": "Amount of Notes",
+  "AmountOfCharacters": "Amount of Characters (of all notes)",
+  "Date": "Date"
 }

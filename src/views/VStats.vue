@@ -2,17 +2,17 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Stat</th>
-        <th>Value</th>
+        <th>{{ $t('Stat') }}</th>
+        <th>{{ $t('Value') }}</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>Amount of Notes </td>
+        <td>{{ $t('AmountOfNotes') }}</td>
         <td>{{ storeNotes.totalNotesCount }}</td>
       </tr>
       <tr>
-        <td>Amount of Characters (of all notes)</td>
+        <td>{{ $t('AmountOfCharacters') }}</td>
         <td>{{ storeNotes.totalCharactersCount }}</td>
       </tr>
     </tbody>
@@ -25,3 +25,9 @@ import { useStoreNotes } from '@/stores/storeNotes';
 
 const storeNotes = useStoreNotes();
 </script>
+
+<style lang="scss" scoped>
+.table {
+  width: 100%;
+}
+</style>
