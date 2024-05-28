@@ -17,7 +17,7 @@
       <div id="navbarBasicExample" class="navbar-menu" :class="{ 'is-active': showMobileNav }" ref="navBarMenuRef">
         <div class="navbar-start">
           <button v-if="storeAuth.user.id" @click="logout" class="button is-small is-info mt-3 ml-3 mb-3">{{
-            $t('logout') }}</button>
+            $t('Logout') }}</button>
           <div v-if="storeAuth.user.id" class="user-email">{{ storeAuth.user.email }}</div>
         </div>
 
@@ -28,12 +28,7 @@
           <RouterLink class="navbar-item" active-class="is-active" to="/stats" @click="showMobileNav = false">{{
             $t('stats') }}
           </RouterLink>
-          <div class="change-locale select is-info">
-            <select v-model="$i18n.locale" style="height: 100%;">
-              <option value="en">EN</option>
-              <option value="ru">RU</option>
-            </select>
-          </div>
+          <CLanguageSwitcher />
         </div>
       </div>
     </div>
@@ -45,6 +40,7 @@
 import { ref } from 'vue';
 import { onClickOutside } from '@vueuse/core';
 import { useStoreAuth } from '@/stores/storeAuth';
+import CLanguageSwitcher from '@/components/CLanguageSwitcher.vue';
 
 const storeAuth = useStoreAuth();
 
